@@ -1,0 +1,16 @@
+module segment(w,x,y,z,a,b,c,d,e,f,g, dp,an);
+input w,x,y,z;
+output a,b,c,d,e,f,g;
+output wire dp;
+output wire [7:0]an;
+assign an=8'b11111110;
+assign dp=1;
+assign a=~(y|w|(x&z)|(~x&~z));
+    assign b=~(~x|(~y&~z)|(y&z));
+    assign c=~(~y|z|x);
+    assign d=~(w|(y&~z|(~x&y)|(~z&~x)|(x&z&~y)));
+    assign e=~((~z&~x)|(y&~z));
+    assign f=~(w|(x&~y)|(~z&x)|(~y&~z));
+    assign g=~(w|(y&~z)|(x&~y)|(~x&y));
+
+endmodule
